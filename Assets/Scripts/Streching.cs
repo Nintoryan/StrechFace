@@ -27,7 +27,8 @@ public class Streching : MonoBehaviour
 
     private Mesh tmpMesh;
 
-    public event UnityAction OnPointerUP;
+    public event UnityAction<Vector3[]> OnChangeVertices;
+    public event UnityAction OnOldVerticesApplyed; 
     
     private void Start()
     {
@@ -40,6 +41,15 @@ public class Streching : MonoBehaviour
             uv = sharedMesh.uv
         };
         _meshFilter.sharedMesh = tmpMesh;
+        OnChangeVertices?.Invoke(tmpMesh.vertices);
+    }
+
+    public void ApplyOldVertices(Vector3[] oldVertices)
+    {
+        tmpMesh.vertices = oldVertices;
+        _meshFilter.sharedMesh = tmpMesh;
+        OnOldVerticesApplyed?.Invoke();
+        
     }
 
     public void PointerDown(BaseEventData data)
@@ -69,7 +79,7 @@ public class Streching : MonoBehaviour
 
     public void PointerUp(BaseEventData data)
     {
-        OnPointerUP?.Invoke();
+        OnChangeVertices?.Invoke(tmpMesh.vertices);
     }
     
 #if UNITY_EDITOR

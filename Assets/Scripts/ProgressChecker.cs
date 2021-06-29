@@ -10,7 +10,7 @@ public class ProgressChecker : MonoBehaviour
     private float _startSumDistance;
     private float _currentSumDistance;
 
-    private float _progress = 0f;
+    private float _progress;
 
     public float Progress
     {
@@ -26,15 +26,15 @@ public class ProgressChecker : MonoBehaviour
             {
                 _progress = value;
             }
-
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        Check();
         _dataAsset.Import();
-        _streching.OnPointerUP += Check;
+        _streching.OnChangeVertices += verts=> {Check();};
+        _streching.OnOldVerticesApplyed += Check;
+        Check();
         _startSumDistance = _currentSumDistance;
     }
 
@@ -43,6 +43,5 @@ public class ProgressChecker : MonoBehaviour
         _currentSumDistance = _currentMesh.sharedMesh.vertices.
             Select((t, i) => Vector3.Distance(t, _dataAsset.data.Vertecies[i])).Sum();
         Progress = 2.5f * (1 - _currentSumDistance / _startSumDistance);
-        Debug.Log(Progress);
     }
 }
