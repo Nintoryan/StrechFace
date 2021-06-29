@@ -1,16 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using StcrechingFace.Geometry;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Streching : MonoBehaviour
 {
+#pragma warning disable 649
     [SerializeField] private MeshFilter _meshFilter;
+
     [Header("Размер кисти")]
+
+    [SerializeField] private float _brushRadius;
+
     [SerializeField] private int _brushSize;
 
     [Header("Чувствительность")] [Range(0.1f, 1f)] [SerializeField]
     private float _senseticity;
+
+    [Header("Коэффициент уменьшения чувствительности")] [Range(0.1f, 1f)] [SerializeField]
+    private float _senDecrCoef;
     
 
     private Camera _camera;
@@ -19,6 +27,8 @@ public class Streching : MonoBehaviour
 
     private Mesh tmpMesh;
 
+    public event UnityAction OnPointerUP;
+    
     private void Start()
     {
         _camera = Camera.main;
@@ -35,52 +45,34 @@ public class Streching : MonoBehaviour
     public void PointerDown(BaseEventData data)
     {
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out var hit))
-        {
-            _dragHitPosition = hit.point;
-            Debug.Log($"downHitPosition {_dragHitPosition}");
-            _affectedVertices = GetSortedVertices(tmpMesh.vertices, _dragHitPosition, _brushSize);
-            foreach (var affectedVertex in _affectedVertices)
-            {
-                Debug.Log($"position {affectedVertex.position} distance{affectedVertex.distance} id {affectedVertex.id}");
-            }
-        }
-
+        if (!Physics.Raycast(ray, out var hit)) return;
+        
+        _dragHitPosition = hit.point;
+        _affectedVertices = _brushSize == 0 ? 
+            Tools.GetBrushVertices(tmpMesh.vertices, _dragHitPosition, _brushRadius) :
+            Tools.GetBrushVertices(tmpMesh.vertices, _dragHitPosition, _brushSize);
     }
 
     public void PointerDrag(BaseEventData data)
     {
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out var hit))
-        {
-            var pointerDifference = (hit.point - _dragHitPosition)*_senseticity;
-            AffectMeshVertices(pointerDifference,_affectedVertices);
-            ApplyChangesToMesh(_meshFilter,_affectedVertices);
-            _dragHitPosition = hit.point;
-        }
+        if (!Physics.Raycast(ray, out var hit)) return;
         
+        var pointerDifference = (hit.point - _dragHitPosition)*_senseticity;
+        
+        Tools.AffectMeshVertices(pointerDifference,_affectedVertices,_senDecrCoef);
+        
+        Tools.ApplyChangesToMesh(tmpMesh,_meshFilter,_affectedVertices);
+        
+        _dragHitPosition = hit.point;
     }
 
-    private MeshVertex[] GetSortedVertices(Vector3[] meshVertices, Vector3 pointerPosition, int Amount)
+    public void PointerUp(BaseEventData data)
     {
-        var tmpVertices = new MeshVertex[meshVertices.Length];
-        for (int i = 0; i < tmpVertices.Length; i++)
-        {
-            tmpVertices[i] = new MeshVertex(meshVertices[i],pointerPosition,i);
-        }
-
-        return tmpVertices.OrderBy(v => v.distance).Take(Amount).ToArray();
+        OnPointerUP?.Invoke();
     }
-
-
-    private void AffectMeshVertices(Vector3 difference, IEnumerable<MeshVertex> vertices)
-    {
-        foreach (var vertex in vertices)
-        {
-            vertex.position += difference;
-        }
-    }
-
+    
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if(_affectedVertices==null) return;
@@ -90,32 +82,8 @@ public class Streching : MonoBehaviour
             Gizmos.DrawSphere(ver.position,0.1f);
         }
         Gizmos.color = Color.black;
-        Gizmos.DrawSphere(_dragHitPosition,0.2f);
+        Gizmos.DrawWireSphere(_dragHitPosition,_brushRadius);
         
     }
-
-    private void ApplyChangesToMesh(MeshFilter _mesh, MeshVertex[] _newVertices)
-    {
-        var _meshVertices = _mesh.sharedMesh.vertices;
-        foreach (var newVertex in _newVertices)
-        {
-            _meshVertices[newVertex.id] = newVertex.position;
-        }
-        tmpMesh.vertices = _meshVertices;
-        _mesh.sharedMesh = tmpMesh;
-    }
-}
-
-public class MeshVertex
-{
-    public Vector3 position;
-    public int id;
-    public float distance;
-
-    public MeshVertex(Vector3 _vertexPosition, Vector3 _pointerPosition, int _id)
-    {
-        position = _vertexPosition;
-        distance = Vector3.Distance(_vertexPosition, _pointerPosition);
-        id = _id;
-    }
+#endif
 }
