@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OpenLevelScreen : MonoBehaviour
@@ -47,6 +48,17 @@ public class OpenLevelScreen : MonoBehaviour
         _opendInstance.transform.position = transform.position;
         _opendInstance.GetComponent<RectTransform>().DOAnchorPos(new Vector2(), 0.5f);
         _opendInstance.transform.DOScale(1.5f, 0.5f);
+    }
+
+    public void Replay()
+    {
+        GlobalData.LoadableLevel = _current.Number;
+        SceneManager.LoadScene("Level");
+    }
+
+    public void TryYourPhoto()
+    {
+        
     }
 
     public void Close()

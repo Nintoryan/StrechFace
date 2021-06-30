@@ -79,11 +79,16 @@ public class UIFunctions : MonoBehaviour
         _gameplayTouchPad.gameObject.SetActive(false);
         _resultImageSaver.SaveFaceSprite();
         OnDone?.Invoke(_progressChecker.Progress);
+        
+        if (GlobalData.LoadableLevel == GlobalData.ProgressLevel)
+        {
+            GlobalData.ProgressLevel++;
+        }
+        GlobalData.LoadableLevel++;
     }
 
     public void Continue()
     {
-        GlobalData.CurrentLevel++;
-        SceneManager.LoadScene(GlobalData.CurrentLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

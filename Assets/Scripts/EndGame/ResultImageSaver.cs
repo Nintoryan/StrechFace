@@ -6,10 +6,11 @@ public class ResultImageSaver : MonoBehaviour
     private const int ImageSize = 256;
     [SerializeField] private Camera _saverCamera;
     [SerializeField] private Image _resultImage;
-    [SerializeField] private string fileName;
+    private string fileName;
     
     public void SaveFaceSprite()
     {
+        fileName = $"{GlobalData.LoadableLevel}.png";
         var tempRT = new RenderTexture(ImageSize,ImageSize, 24 );
 
         _saverCamera.targetTexture = tempRT;

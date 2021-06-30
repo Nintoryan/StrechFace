@@ -26,6 +26,7 @@ public class Menu : MonoBehaviour
 
     public void PlayHome()
     {
-        SceneManager.LoadScene(GlobalData.CurrentLevel);
+        
+        SceneManager.LoadScene("Level");
     }
 }

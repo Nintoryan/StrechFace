@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace StcrechingFace.Tool
 {
-    public class ReferenceVertSaver:MonoBehaviour
+    public static class ReferenceVertSaver
     {
         [MenuItem("HerbariumGames/SaveReference")]
         private static void NewMenuOption()
@@ -19,6 +19,15 @@ namespace StcrechingFace.Tool
             var jsonSv = JsonUtility.ToJson(sv);
             var path = Application.dataPath;
             File.WriteAllText(path+$"/Scripts/SavingVert/ReferencedJsons/{_levelNumber}.json",jsonSv);
+        }
+    }
+
+    public static class PPdeleter
+    {
+        [MenuItem("HerbariumGames/DeletePP")]
+        private static void NewMenuOption()
+        {
+            PlayerPrefs.DeleteAll();
         }
     }
 }

@@ -19,7 +19,7 @@ public class Level : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
         backGround = GetComponent<Image>();
         startPosition = _rectTransform.anchoredPosition;
-        if (GlobalData.CurrentLevel > Number)
+        if (GlobalData.ProgressLevel > Number)
         {
             result.sprite = IMG2Sprite.LoadNewSprite($"{_number}.png");
         }
