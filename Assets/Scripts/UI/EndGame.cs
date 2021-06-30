@@ -29,12 +29,16 @@ public class EndGame : MonoBehaviour
         if (progress < 0.68f)
         {
             _stars[0].gameObject.SetActive(true);
+            
         }else if (progress < 0.86f)
         {
+            _stars[0].gameObject.SetActive(true);
             _stars[1].gameObject.SetActive(true);
         }
         else
         {
+            _stars[0].gameObject.SetActive(true);
+            _stars[1].gameObject.SetActive(true);
             _stars[2].gameObject.SetActive(true);
         }
     }

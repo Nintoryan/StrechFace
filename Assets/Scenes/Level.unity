@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshFilter: {fileID: 374994732}
-  _brushRadius: 2
+  _brushRadius: 15
   _brushSize: 0
   _senseticity: 0.5
   _senDecrCoef: 0.99
@@ -2164,8 +2164,8 @@ RectTransform:
   m_Father: {fileID: 1430245287}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 449.76, y: -1578.77}
   m_SizeDelta: {x: 441.61, y: 99.52}
   m_Pivot: {x: 0.5, y: 0.5}

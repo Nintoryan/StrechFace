@@ -21,15 +21,7 @@ public class DeviceCamera : MonoBehaviour
             camAvailable = false;
             return;
         }
-        
-        for (int i = 0; i < devices.Length; i++)
-        {
-            if (!devices[i].isFrontFacing)
-            {
-                backCamTexture = new WebCamTexture(devices[i].name,Screen.width,Screen.height);
-            }
-        }
-
+        backCamTexture = new WebCamTexture(devices[0].name,Screen.width,Screen.height);
         if (backCamTexture == null)
         {
             Debug.Log("No back camera");
@@ -42,6 +34,14 @@ public class DeviceCamera : MonoBehaviour
 
     private void Update()
     {
-        throw new NotImplementedException();
+        if(!camAvailable) return;
+        float ratio = (float) backCamTexture.width / (float)backCamTexture.height;
+        fit.aspectRatio = ratio;
+
+        float scaleY = backCamTexture.videoVerticallyMirrored ? -1f : 1f;
+        background.rectTransform.localScale = new Vector3(1f,scaleY,1f);
+
+        int orient = -backCamTexture.videoRotationAngle;
+        background.rectTransform.localEulerAngles = new Vector3(0,0,orient);
     }
 }
