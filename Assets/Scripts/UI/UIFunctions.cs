@@ -1,18 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class UIFunctions : MonoBehaviour
 {
     [Header("Links")]
     [SerializeField] private Streching _streching;
-    [SerializeField] private MeshFilter _meshFilter;
+    [SerializeField] private EventTrigger _gameplayTouchPad;
+    [SerializeField] private MeshRenderer _outLine;
     [SerializeField] private ProgressChecker _progressChecker;
+    [SerializeField] private ResultImageSaver _resultImageSaver;
+    [SerializeField] private RectTransform _faceSelectionBar;
+    [SerializeField] private Canvas _faceSelectionCanvas;
+    [SerializeField] private Canvas _gameplayCanvas;
     [Header("Buttons")]
     [SerializeField] private Button _undoButton;
     [SerializeField] private Button _doneButton;
+    
     private Stack<Vector3[]> _actionsStack = new Stack<Vector3[]>();
+
+    public event UnityAction<float> OnDone; 
     
     private void Awake()
     {
@@ -46,13 +57,33 @@ public class UIFunctions : MonoBehaviour
         _doneButton.gameObject.SetActive(true);
     }
 
+    public void HideSelectionBar()
+    {
+        var s = DOTween.Sequence();
+        s.Append(_faceSelectionBar.DOAnchorPosY(-200f, 0.5f));
+        s.AppendCallback(() =>
+        {
+            _gameplayCanvas.gameObject.SetActive(true);
+            _faceSelectionCanvas.gameObject.SetActive(false);
+        });
+    }
+
     public void OpenGallery()
     {
-        
+        SceneManager.LoadScene("Gallery");
     }
 
     public void Done()
     {
-        
+        _outLine.gameObject.SetActive(false);
+        _gameplayTouchPad.gameObject.SetActive(false);
+        _resultImageSaver.SaveFaceSprite();
+        OnDone?.Invoke(_progressChecker.Progress);
+    }
+
+    public void Continue()
+    {
+        GlobalData.CurrentLevel++;
+        SceneManager.LoadScene(GlobalData.CurrentLevel);
     }
 }

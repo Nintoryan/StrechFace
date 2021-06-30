@@ -2386,7 +2386,7 @@ MonoBehaviour:
     fontStyle: 0
     fontStyleModifier: 0
     renderMode: 4165
-    includeFontFeatures: 0
+    includeFontFeatures: 1
   m_FontWeightTable:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}

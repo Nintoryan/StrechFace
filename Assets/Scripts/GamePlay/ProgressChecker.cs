@@ -47,6 +47,7 @@ public class ProgressChecker : MonoBehaviour
 
     private void Check()
     {
+        Debug.Log(_currentSumDistance);
         _currentSumDistance = _currentMesh.sharedMesh.vertices.
             Select((t, i) => Vector3.Distance(t, _dataAsset.data.Vertecies[i])).Sum();
         Progress = 2.5f * (1 - _currentSumDistance / _startSumDistance);

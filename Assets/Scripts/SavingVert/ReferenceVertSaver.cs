@@ -15,6 +15,7 @@ namespace StcrechingFace.Tool
             var refer = GameObject.FindWithTag("Streching").GetComponent<MeshFilter>();
             var _levelNumber = SceneManager.GetActiveScene().buildIndex;
             var sv = new VertLevelData(refer.sharedMesh.vertices,_levelNumber);
+            Debug.Log(refer.sharedMesh.vertices.Length);
             var jsonSv = JsonUtility.ToJson(sv);
             var path = Application.dataPath;
             File.WriteAllText(path+$"/Scripts/SavingVert/ReferencedJsons/{_levelNumber}.json",jsonSv);
