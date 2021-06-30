@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshFilter: {fileID: 374994732}
-  _brushRadius: 1
+  _brushRadius: 2
   _brushSize: 0
   _senseticity: 0.5
   _senDecrCoef: 0.99

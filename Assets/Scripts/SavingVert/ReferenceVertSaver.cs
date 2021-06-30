@@ -13,7 +13,7 @@ namespace StcrechingFace.Tool
         private static void NewMenuOption()
         {
             var refer = GameObject.FindWithTag("Streching").GetComponent<MeshFilter>();
-            var _levelNumber = SceneManager.GetActiveScene().buildIndex;
+            var _levelNumber = GlobalData.LoadableLevel;
             var sv = new VertLevelData(refer.sharedMesh.vertices,_levelNumber);
             Debug.Log(refer.sharedMesh.vertices.Length);
             var jsonSv = JsonUtility.ToJson(sv);
