@@ -12,17 +12,7 @@ public class Menu : MonoBehaviour
             PlayerPrefs.SetInt("level0",1);
         }
     }
-
-    private void Start()
-    {
-        foreach (var level in _levelPresenters)
-        {
-            if (PlayerPrefs.GetInt($"level{level.Number}") == 0)
-            {
-                level.gameObject.SetActive(false);
-            }
-        }
-    }
+    
 
     public void PlayHome()
     {

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,13 +5,11 @@ public class DeviceCamera : MonoBehaviour
 {
     private bool camAvailable;
     private WebCamTexture backCamTexture;
-    private Texture defaultBackGround;
     public RawImage background;
     public AspectRatioFitter fit;
 
     private void Start()
     {
-        defaultBackGround = background.texture;
         var devices = WebCamTexture.devices;
 
         if (devices.Length == 0)
@@ -27,7 +24,8 @@ public class DeviceCamera : MonoBehaviour
             Debug.Log("No back camera");
             return;
         }
-        backCamTexture.Play();
+        backCamTexture.Stop();
+        //backCamTexture.Play();
         background.texture = backCamTexture;
         camAvailable = true;
     }

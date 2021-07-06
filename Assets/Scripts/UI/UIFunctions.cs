@@ -13,7 +13,7 @@ public class UIFunctions : MonoBehaviour
     [SerializeField] private EventTrigger _gameplayTouchPad;
     [SerializeField] private MeshRenderer _outLine;
     [SerializeField] private ProgressChecker _progressChecker;
-    [SerializeField] private ResultImageSaver _resultImageSaver;
+    [SerializeField] private ResultSaver _resultSaver;
     [SerializeField] private RectTransform _faceSelectionBar;
     [SerializeField] private Canvas _faceSelectionCanvas;
     [SerializeField] private Canvas _gameplayCanvas;
@@ -77,14 +77,18 @@ public class UIFunctions : MonoBehaviour
     {
         _outLine.gameObject.SetActive(false);
         _gameplayTouchPad.gameObject.SetActive(false);
-        _resultImageSaver.SaveFaceSprite();
-        OnDone?.Invoke(_progressChecker.Progress);
-        
-        if (GlobalData.LoadableLevel == GlobalData.ProgressLevel)
+        _resultSaver.SaveResult();
+        _resultSaver.OnSaved += () =>
         {
-            GlobalData.ProgressLevel++;
-        }
-        GlobalData.LoadableLevel++;
+            OnDone?.Invoke(_progressChecker.Progress);
+
+            if (GlobalData.LoadableLevel == GlobalData.ProgressLevel)
+            {
+                GlobalData.ProgressLevel++;
+            }
+
+            GlobalData.LoadableLevel++;
+        };
     }
 
     public void Continue()

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using StcrechingFace.End;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,6 +23,10 @@ public class Level : MonoBehaviour
         if (GlobalData.ProgressLevel > Number)
         {
             result.sprite = IMG2Sprite.LoadNewSprite($"{_number}.png");
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 

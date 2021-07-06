@@ -1218,7 +1218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c814a062616ac2a41b25542341bfbdf4, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c814a062616ac2a41b25542341bfbdf4, type: 3}
       propertyPath: m_IsActive
@@ -2166,7 +2166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 449.76, y: -1578.77}
+  m_AnchoredPosition: {x: 0, y: 244}
   m_SizeDelta: {x: 441.61, y: 99.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659550865
@@ -2376,6 +2376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 679990937}
+  - component: {fileID: 679990939}
   - component: {fileID: 679990938}
   m_Layer: 0
   m_Name: ResultImageSaver
@@ -2407,11 +2408,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 679990936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 671450d8245a3384c959c9b974e201a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b54b537353efab4b93b691e568d1bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saverCamera: {fileID: 1714556560}
-  _resultImage: {fileID: 574786006}
+  _resultPresenter: {fileID: 574786006}
+  main: {fileID: 963194227}
+  _resultSaverCamera: {fileID: 1714556560}
+--- !u!114 &679990939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679990936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8c25324d55b5e469cda7d213b9c241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 796.14, y: 796.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &815324046
@@ -4081,7 +4095,7 @@ MonoBehaviour:
   _gameplayTouchPad: {fileID: 1631671916}
   _outLine: {fileID: 2056589474}
   _progressChecker: {fileID: 1649365857}
-  _resultImageSaver: {fileID: 679990938}
+  _resultSaver: {fileID: 679990938}
   _faceSelectionBar: {fileID: 6954225336395943049}
   _faceSelectionCanvas: {fileID: 790481488}
   _gameplayCanvas: {fileID: 659731438}
@@ -6296,7 +6310,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714556559}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 4
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
@@ -6316,13 +6330,13 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: d6469ae473b68264597062746b4e2130, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
