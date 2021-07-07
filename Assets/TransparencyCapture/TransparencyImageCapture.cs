@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using StcrechingFace.End;
 
 
@@ -27,19 +28,20 @@ public class TransparencyImageCapture:MonoBehaviour
         var rect = new Rect(0f, Mathf.RoundToInt(Screen.height / 4f), Screen.width, Screen.width);
         return capture(rect,cam);
     }
-    
-    public Sprite captureScreenshot(string fileName,Camera cam)
+
+    public (Sprite, Texture2D) captureScreenshot(string fileName, Camera cam)
     {
-        var SpriteTexture = captureScreenshot(cam);
         try
         {
+            var SpriteTexture = captureScreenshot(cam);
             var data = SpriteTexture.EncodeToPNG();
             IMG2Sprite.SavePNG(fileName, data);
-            return IMG2Sprite.LoadNewSprite(data);
+            return (IMG2Sprite.LoadNewSprite(data), SpriteTexture);
         }
-        finally
+        catch (Exception e)
         {
-            DestroyImmediate(SpriteTexture);
+            Debug.Log(e);
+            return (null, null);
         }
     }
 

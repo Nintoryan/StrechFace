@@ -78,15 +78,13 @@ public class UIFunctions : MonoBehaviour
         _outLine.gameObject.SetActive(false);
         _gameplayTouchPad.gameObject.SetActive(false);
         _resultSaver.SaveResult();
-        _resultSaver.OnSaved += () =>
+        _resultSaver.OnSaved += _texture =>
         {
             OnDone?.Invoke(_progressChecker.Progress);
-
             if (GlobalData.LoadableLevel == GlobalData.ProgressLevel)
             {
                 GlobalData.ProgressLevel++;
             }
-
             GlobalData.LoadableLevel++;
         };
     }
@@ -96,7 +94,7 @@ public class UIFunctions : MonoBehaviour
         _outLine.gameObject.SetActive(false);
         _gameplayTouchPad.gameObject.SetActive(false);
         _resultSaver.SaveResult();
-        _resultSaver.OnSaved += () =>
+        _resultSaver.OnSaved += _texture =>
         {
             OnDone?.Invoke(_progressChecker.Progress);
         };

@@ -12,7 +12,7 @@ public class ResultSaver:MonoBehaviour
     private Sprite _savedResult;
     private TransparencyImageCapture _imageCapture;
 
-    public event UnityAction OnSaved;
+    public event UnityAction<Texture2D> OnSaved;
 
     private void Awake()
     {
@@ -23,14 +23,17 @@ public class ResultSaver:MonoBehaviour
     {
         main.enabled = false;
         yield return new WaitForEndOfFrame();
-        _savedResult = _imageCapture.captureScreenshot($"{GlobalData.LoadableLevel}.png",_resultSaverCamera);
+        var data = _imageCapture.captureScreenshot($"{GlobalData.LoadableLevel}.png", _resultSaverCamera);
+        _savedResult = data.Item1;
         main.enabled = true;
         _resultPresenter.sprite = _savedResult;
-        OnSaved?.Invoke();
+        OnSaved?.Invoke(data.Item2);
     }
 
     public void SaveResult()
     {
         StartCoroutine(Save());
     }
+    
+    
 }

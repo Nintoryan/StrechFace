@@ -38,7 +38,7 @@ namespace StcrechingFace.End
             return NewSprite;
         }
 
-        private static Texture2D LoadTexture(string FilePath)
+        public static Texture2D LoadTexture(string FilePath)
         {
             if (!File.Exists(FilePath)) return null;
             var FileData = File.ReadAllBytes(FilePath);

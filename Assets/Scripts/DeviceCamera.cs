@@ -97,13 +97,12 @@ public class DeviceCamera : MonoBehaviour
         CamTexture.Stop();
         OnPhotoTaken?.Invoke(photo,orient);
     }
-    Texture2D rotateTexture(Texture2D originalTexture, bool clockwise)
+    public static Texture2D rotateTexture(Texture2D originalTexture, bool clockwise)
     {
         var original = originalTexture.GetPixels32();
         var rotated = new Color32[original.Length];
         var w = originalTexture.width;
         var h = originalTexture.height;
-
         for (var j = 0; j < h; ++j)
         {
             for (var i = 0; i < w; ++i)
@@ -113,13 +112,13 @@ public class DeviceCamera : MonoBehaviour
                 rotated[iRotated] = original[iOriginal];
             }
         }
- 
         var rotatedTexture = new Texture2D(h, w);
         rotatedTexture.SetPixels32(rotated);
         rotatedTexture.Apply();
         return rotatedTexture;
     }
-    Texture2D FlipTexture(Texture2D original){
+
+    public static Texture2D FlipTexture(Texture2D original){
         var flipped = new Texture2D(original.width,original.height);
          
         var xN = original.width;
