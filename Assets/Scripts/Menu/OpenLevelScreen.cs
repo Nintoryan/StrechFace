@@ -58,7 +58,8 @@ public class OpenLevelScreen : MonoBehaviour
 
     public void TryYourPhoto()
     {
-        
+        GlobalData.LoadableLevel = _current.Number;
+        SceneManager.LoadScene("CustomLevel");
     }
 
     public void Close()

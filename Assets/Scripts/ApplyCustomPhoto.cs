@@ -6,10 +6,18 @@ public class ApplyCustomPhoto : MonoBehaviour
     [SerializeField] private DeviceCamera _deviceCamera;
     [SerializeField] private Canvas _deviceCameraCanvas;
     [SerializeField] private Canvas _gameplayCanvas;
-    public void TakePhoto()
+
+    private void Start()
     {
-        _streching.material.mainTexture = _deviceCamera.background.texture;
+        _deviceCamera.OnPhotoTaken += ApplyPhoto;
+    }
+
+    private void ApplyPhoto(Texture texture,int orient)
+    {
+        _streching.material.mainTexture = texture;
         _deviceCameraCanvas.gameObject.SetActive(false);
         _gameplayCanvas.gameObject.SetActive(true);
+
     }
+    
 }

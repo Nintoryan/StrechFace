@@ -40,7 +40,7 @@ public class ProgressChecker : MonoBehaviour
     {
         //_dataAsset.Import();
         _streching.OnChangeVertices += verts=> {Check();};
-        _streching.OnOldVerticesApplyed += Check;
+        _streching.OnOldVerticesApplyed += UnCheck;
         Check();
         _startSumDistance = _currentSumDistance;
     }
@@ -48,5 +48,10 @@ public class ProgressChecker : MonoBehaviour
     private void Check()
     {
         Progress += 0.05f;
+    }
+
+    private void UnCheck()
+    {
+        Progress -= 0.05f;
     }
 }

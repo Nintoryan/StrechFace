@@ -91,8 +91,25 @@ public class UIFunctions : MonoBehaviour
         };
     }
 
+    public void Ready()
+    {
+        _outLine.gameObject.SetActive(false);
+        _gameplayTouchPad.gameObject.SetActive(false);
+        _resultSaver.SaveResult();
+        _resultSaver.OnSaved += () =>
+        {
+            OnDone?.Invoke(_progressChecker.Progress);
+        };
+    }
+
     public void Continue()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void TryyourPhoto()
+    {
+        GlobalData.LoadableLevel--;
+        SceneManager.LoadScene("CustomLevel");
     }
 }

@@ -26,6 +26,8 @@ public class EndGame : MonoBehaviour
         _streching.gameObject.SetActive(false);
         _gameplayCanvas.gameObject.SetActive(false);
         _endGameCanvas.gameObject.SetActive(true);
+        if(_stars.Count == 0)
+            return;
         if (progress < 0.68f)
         {
             _stars[0].gameObject.SetActive(true);
