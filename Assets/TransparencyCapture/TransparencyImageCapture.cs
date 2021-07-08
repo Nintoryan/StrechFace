@@ -25,7 +25,7 @@ public class TransparencyImageCapture:MonoBehaviour
 
     private Texture2D captureScreenshot(Camera cam)
     {
-        var rect = new Rect(0f, Mathf.RoundToInt(Screen.height / 4f), Screen.width, Screen.width);
+        var rect = new Rect(190f, 325f, 700f, 700f);
         return capture(rect,cam);
     }
 
