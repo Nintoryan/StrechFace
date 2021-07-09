@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d836141e72f41431b80e329df6616f69, type: 3}
+  m_Name: KetchappSettings
+  m_EditorClassIdentifier: 
+  StudioName: Herbarium Games
+  GameName: Stretch The Face
+  IosConfiguration:
+    FacebookAppId: 548987036112684
+    GameAnalyticsSecretKey: 
+    GameAnalyticsGameKey: 
+    MediationAppId: 
+    MediationName: Unknown
+    AdMobAppId: 
+    RewardedVideoId: 
+    InterstitialId: 
+    BannerId: 
+    AppsflyerApiKey: xXfYJ5TwupQKMEH9uz88uj
+    AppsFlyerAppid: 
+    CrossPromotionBundle: 
+    AndroidManifestValues: []
+    GradleValues: []
+    SdkList:
+    - Version: 6.5.4.0
+      Name: GameAnalytics
+      Extension: unitypackage
+      ToolVersionId: 10
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - GameAnalytics
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    - Version: 6.3.1.0
+      Name: AppsFlyer
+      Extension: unitypackage
+      ToolVersionId: 11
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - AppsFlyer
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    - Version: 9.0.0.0
+      Name: FacebookSDK
+      Extension: unitypackage
+      ToolVersionId: 12
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - FacebookSDK
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    - Version: 1.2.165.0
+      Name: External Dependency Manager
+      Extension: unitypackage
+      ToolVersionId: 16
+      Changelog: 
+      Type: 4
+      PackageType: 0
+      PluginPaths:
+      - ExternalDependencyManager
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    MediationAdapters: []
+  AndroidConfiguration:
+    FacebookAppId: 548987036112684
+    GameAnalyticsSecretKey: 0c658257107e7a75a4634731c194cc54220e6fb8
+    GameAnalyticsGameKey: 36ab19b48365501651d8fdbf6b2d52c8
+    MediationAppId: 
+    MediationName: Unknown
+    AdMobAppId: 
+    RewardedVideoId: 
+    InterstitialId: 
+    BannerId: 
+    AppsflyerApiKey: xXfYJ5TwupQKMEH9uz88uj
+    AppsFlyerAppid: com.HerbariumGames.StretchFace
+    CrossPromotionBundle: 
+    AndroidManifestValues:
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.VIBRATE
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.WRITE_EXTERNAL_STORAGE
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.READ_PHONE_STATE
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.ACCESS_WIFI_STATE
+    - ManifestType: 4
+      Name: com.google.android.gms.ads.APPLICATION_ID
+      Value: 
+    - ManifestType: 2
+      Name: usesCleartextTraffic
+      Value: true
+    - ManifestType: 2
+      Name: fullBackupContent
+      Value: '@xml/appsflyer_backup_rules'
+    - ManifestType: 5
+      Name: replace
+      Value: android:fullBackupContent
+    GradleValues:
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.72'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.google.android.gms:play-services-base:17.4.0'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    SdkList:
+    - Version: 6.5.4.0
+      Name: GameAnalytics
+      Extension: unitypackage
+      ToolVersionId: 10
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - GameAnalytics
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    - Version: 6.3.1.0
+      Name: AppsFlyer
+      Extension: unitypackage
+      ToolVersionId: 11
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - AppsFlyer
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    - Version: 9.0.0.0
+      Name: FacebookSDK
+      Extension: unitypackage
+      ToolVersionId: 12
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - FacebookSDK
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    - Version: 1.2.165.0
+      Name: External Dependency Manager
+      Extension: unitypackage
+      ToolVersionId: 16
+      Changelog: 
+      Type: 4
+      PackageType: 0
+      PluginPaths:
+      - ExternalDependencyManager
+      FilesToDelete: []
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+    MediationAdapters: []
+  SKAdNetworksId: []
+  BannerHeight: 180
+  GameState: 1

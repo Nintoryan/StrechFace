@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0032a993cd44f1783b0ca1815ac13b, type: 3}
+  m_Name: LocalizedStrings
+  m_EditorClassIdentifier: 
+  Properties:
+  - LocalizationCode: 0
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: Pressing \"Allow\" uses device info for more relevant ad content
+  - LocalizationCode: 1
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\u70B9\u51FB\\\"\u5141\u8BB8\\\"\u4EE5\u4F7F\u7528\u8BBE\u5907\u4FE1\u606F\u83B7\u5F97\u66F4\u52A0\u76F8\u5173\u7684\u5E7F\u544A\u5185\u5BB9"
+  - LocalizationCode: 2
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\\\"Autoriser\\\" permet d'utiliser les infos du t\xE9l\xE9phone pour
+        afficher des contenus publicitaires plus pertinents"
+  - LocalizationCode: 3
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\\\"Erlauben\\\" dr\xFCcken benutzt Ger\xE4tinformationen f\xFCr relevantere
+        Werbeinhalte"
+  - LocalizationCode: 4
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\\\"\u8A31\u53EF\\\"\u3092\u30AF\u30EA\u30C3\u30AF\u3059\u308B\u3053\u3068\u3067\u3001\u30C7\u30D0\u30A4\u30B9\u60C5\u5831\u3092\u5143\u306B\u3088\u308A\u6700\u9069\u306A\u5E83\u544A\u3092\u8868\u793A\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059"
+  - LocalizationCode: 5
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\\\"\uD5C8\uC6A9\\\"\uC744 \uB204\uB974\uBA74 \uB354 \uAD00\uB828\uC131
+        \uB192\uC740 \uAD11\uACE0 \uCF58\uD150\uCE20\uB97C \uC81C\uACF5\uD558\uAE30
+        \uC704\uD574 \uAE30\uAE30 \uC815\uBCF4\uAC00 \uC0AC\uC6A9\uB429\uB2C8\uB2E4"
+  - LocalizationCode: 6
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "Presionando \\\"Permitir\\\", se usa la informaci\xF3n del dispositivo
+        para obtener contenido publicitario m\xE1s relevante"
+  - LocalizationCode: 7
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\\\"Autorizzare\\\" consente l\u2019utilizzo dei dati del dispositivo
+        per proporre annunci pubblicitari pi\xF9 pertinenti"
+  - LocalizationCode: 8
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\u041D\u0430\u0436\u0430\u0442\u0438\u0435 \\\"\u0420\u0430\u0437\u0440\u0435\u0448\u0438\u0442\u044C
+        \\\" \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E
+        \u043E\u0431 \u0443\u0441\u0442\u0440\u043E\u0439\u0441\u0442\u0432\u0435
+        \u0434\u043B\u044F \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F
+        \u0431\u043E\u043B\u0435\u0435 \u0440\u0435\u043B\u0435\u0432\u0430\u043D\u0442\u043D\u043E\u0433\u043E
+        \u0440\u0435\u043A\u043B\u0430\u043C\u043D\u043E\u0433\u043E \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430"
+  - LocalizationCode: 9
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: 
+  - LocalizationCode: 10
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: "\\\"Autorizar\\\" permite o uso de dados do dispositivo para propor
+        an\xFAncios mais relevantes"
+  - LocalizationCode: 11
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: 
+  - LocalizationCode: 12
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: 
+  - LocalizationCode: 13
+    Properties:
+    - Property: NSUserTrackingUsageDescription
+      Value: 

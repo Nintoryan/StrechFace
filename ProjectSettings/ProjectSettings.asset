@@ -680,8 +680,8 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     1: CROSS_PLATFORM_INPUT
-    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+    4: CROSS_PLATFORM_INPUT;MOBILE_INPUT;GameAnalytics;AppsFlyer;FacebookSDK;External_Dependency_Manager;MayoSDK
+    7: CROSS_PLATFORM_INPUT;MOBILE_INPUT;GameAnalytics;AppsFlyer;FacebookSDK;External_Dependency_Manager;MayoSDK
     13: CROSS_PLATFORM_INPUT
     14: CROSS_PLATFORM_INPUT;MOBILE_INPUT
   additionalCompilerArguments: {}
