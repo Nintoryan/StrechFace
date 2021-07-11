@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Ketchapp.MayoSDK;
+using Ketchapp.MayoSDK.Analytics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +18,13 @@ public class EndGame : MonoBehaviour
     [SerializeField] private Image _backLights;
     [SerializeField] private List<Button> _buttons = new List<Button>();
 
+    private ILevel CurrentLevel;
+
     private void Awake()
     {
         _uiFunctions.OnDone += OpenEndGameCanvas;
+        CurrentLevel = KetchappSDK.Analytics.GetLevel(GlobalData.LoadableLevel);
+        CurrentLevel.ProgressionStart();
     }
 
     private void OpenEndGameCanvas(float progress)
@@ -43,5 +49,7 @@ public class EndGame : MonoBehaviour
             _stars[1].gameObject.SetActive(true);
             _stars[2].gameObject.SetActive(true);
         }
+
+        CurrentLevel.ProgressionComplete().Score((int)(progress*100));
     }
 }

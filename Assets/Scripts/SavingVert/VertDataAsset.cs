@@ -10,7 +10,7 @@ public class VertDataAsset : ScriptableObject
     public TextAsset sourcePath;
     public void Import()
     {
-        data = JsonUtility.FromJson<VertLevelData>(sourcePath.text);
+        //data = JsonUtility.FromJson<VertLevelData>(sourcePath.text);
         EditorUtility.SetDirty(this);
     }
 #endif

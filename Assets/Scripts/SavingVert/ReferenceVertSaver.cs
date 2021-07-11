@@ -16,9 +16,9 @@ namespace StcrechingFace.Tool
             var _levelNumber = GlobalData.LoadableLevel;
             var sv = new VertLevelData(refer.sharedMesh.vertices,_levelNumber);
             Debug.Log(refer.sharedMesh.vertices.Length);
-            var jsonSv = JsonUtility.ToJson(sv);
-            var path = Application.dataPath;
-            File.WriteAllText(path+$"/Scripts/SavingVert/ReferencedJsons/{_levelNumber}.json",jsonSv);
+            //var jsonSv = JsonUtility.ToJson(sv);
+            //var path = Application.dataPath;
+            //File.WriteAllText(path+$"/Scripts/SavingVert/ReferencedJsons/{_levelNumber}.json",jsonSv);
         }
     }
 
