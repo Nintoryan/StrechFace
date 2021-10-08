@@ -82,8 +82,60 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   secretKey:
   - 0c658257107e7a75a4634731c194cc54220e6fb8
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -151,72 +203,205 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   SelectedPlatformStudio:
   - 
   - 
   SelectedPlatformGame:
   - 
   - 
-  SelectedPlatformGameID: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  SelectedOrganization: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  SelectedStudio: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  SelectedGame: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  NewVersion: 6.5.6
-  Changes: '6.5.6
+  SelectedPlatformGameID: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  SelectedOrganization: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  SelectedStudio: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  SelectedGame: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  NewVersion: 7.0.4
+  Changes: '7.0.4
 
-    - fixed crash bug for ios
+    - added ios part for aequus ilrd integration
+
+
+    7.0.3
+
+    -
+    renamed ATT method name to avoid dupplicate symbols
+
+
+    7.0.2
+
+    - fixes
+    to ILRD integrations
+
+
+    7.0.1
+
+    - updated ILRD integrations
+
+
+    7.0.0
+
+    -
+    Changed user identifier logic in preparation for Google changes to GAID. User
+    id for a new install is now a randomised GUID. Existing installs that update
+    SDK will continue using previous identifier logic. It is recommended to update
+    as soon as possible to reduce impact on calculated metrics.
+
+
+    6.7.1
+
+    -
+    fixes to max irld integration
+
+
+    6.7.0
+
+    - added option to enable native
+    exceptions error reporting for android and ios
+
+
+    6.6.4
+
+    - prepared for
+    google advertising identifier changes (will not use google advertising identifier
+    when user has opted out) (android)
+
+    - it should now be possible to not show
+    idfa consent dialog if you don''t have any third party code that needs to use
+    idfa
+
+
+    6.6.3
+
+    - removed unnecessary append of stacktrace when stacktrace
+    is missing from warning/error messages sent to GA backend
+
+
+    6.6.2
+
+    -
+    fixed ios compile errors
+
+    - fixed ILRD related compile error
+
+    - added
+    ios_testflight to events coming from testflight builds
+
+
+    6.6.1
+
+    - added
+    ILRD support for Aequus SDK
+
+    - fixed ILRD related bug
+
+
+    6.6.0
+
+    -
+    more fixes for using ILRD when using SDK from UPM
+
+    - OBS now you need to
+    use GameAnalyticsILRD class to subscribe to ILRD impression events (also download
+    latest GA ILRD .unitypackage to get it to work if using SDK from UPM, see docs
+    for more info)
+
+    - prepared for google advertising identifier changes (will
+    not use google advertising identifier when user has opted out) (android)
+
+
+    6.5.8
+
+    -
+    fixed compile issues when using ILRD with SDK from UPM (now you have to download
+    a seperate .unitypackage when using ILRD with SDK from UPM)
+
+
+    6.5.7
+
+    -
+    added missing architectures of ios libraries
+
+
+    6.5.6
+
+    - fixed crash bug
+    for ios
 
 
     6.5.5
 
-    - reverted back
-    to v6.5.2 as crashes happen for ios which have not been narrowed down to what
-    is causing this yet
+    - reverted back to v6.5.2 as crashes happen for ios
+    which have not been narrowed down to what is causing this yet
 
 
     6.5.4
 
-    - fixed typo error
+    -
+    fixed typo error
 
 
     6.5.3
 
-    - added
-    support for max in impression events
+    - added support for max in impression events
 
-    - fixed dupplicate symbol on ios
+    -
+    fixed dupplicate symbol on ios
 
 
     6.5.2
 
-    -
-    fixed crashes for android devices without google play API (android)
+    - fixed crashes for android devices
+    without google play API (android)
 
 
     6.5.1
 
-    -
-    added support for OAID (android)
+    - added support for OAID (android)
 
-    - added missing export function for UWP
-    lib (uwp)
+    -
+    added missing export function for UWP lib (uwp)
 
 
     6.5.0
 
-    - added app tracking transparency request function
-    (ios)
+    - added app
+    tracking transparency request function (ios)
 
 
     6.4.1
 
-    - added idfa consent status field to events (ios)
+    - added idfa consent
+    status field to events (ios)
 
 
     6.4.0
 
-    -
-    added support for unity package manager
+    - added support for unity package
+    manager
 
 
     6.3.14
@@ -226,8 +411,8 @@ MonoBehaviour:
 
     6.3.13
 
-    -
-    fixed compiler errors for 2017.1
+    - fixed
+    compiler errors for 2017.1
 
     - updated client ts validator
 

@@ -22,7 +22,7 @@ public class PhotoEndActions : MonoBehaviour
     {
         var share = new NativeShare();
         share.SetSubject("Stretched face!");
-        share.SetText("Look at this squished face! Ahahhaahhaha xD");
+        share.SetText("Look at this squished face! Ahahhaahhaha xD Try yourself! https://play.google.com/store/apps/details?id=com.HerbariumGames.StretchFace");
         share.AddFile(_result, $"{Random.Range(1000, 9999)}face.png");
         share.SetTitle("Share this squished face.");
         share.Share();

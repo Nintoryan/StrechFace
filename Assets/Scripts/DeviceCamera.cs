@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class DeviceCamera : MonoBehaviour
 {
+    [SerializeField] private Camera _photoScreenshotTakerCamera;
+    
     private bool camAvailable;
     private WebCamTexture CamTexture;
     public RawImage background;
+    public RawImage background1;
 
     public AspectRatioFitter fit;
+    public AspectRatioFitter fit1;
     private WebCamDevice FrontalCamera;
     private WebCamDevice BackCamera;
     private WebCamDevice CurrentCamera;
@@ -46,6 +50,7 @@ public class DeviceCamera : MonoBehaviour
                 {
                     CamTexture.Play();
                     background.texture = CamTexture;
+                    background1.texture = CamTexture;
                     camAvailable = true;
                 }
             }
@@ -72,12 +77,15 @@ public class DeviceCamera : MonoBehaviour
         if(!camAvailable) return;
         float ratio = CamTexture.width / (float)CamTexture.height;
         fit.aspectRatio = ratio;
+        fit1.aspectRatio = ratio;
 
         float scaleY = CamTexture.videoVerticallyMirrored ? -1f : 1f;
         background.rectTransform.localScale = new Vector3(1f,scaleY,1f);
+        background1.rectTransform.localScale = new Vector3(1f, scaleY,1f);
 
         orient = -CamTexture.videoRotationAngle;
         background.rectTransform.localEulerAngles = new Vector3(0,0,orient);
+        background1.rectTransform.localEulerAngles = new Vector3(0,0,orient);
     }
 
     public void TakePhoto()
@@ -87,13 +95,21 @@ public class DeviceCamera : MonoBehaviour
     private IEnumerator IETakePhoto()
     {
         yield return new WaitForEndOfFrame();
-        var photo = new Texture2D(CamTexture.width,CamTexture.height);
+        
+        /*var photo = new Texture2D(CamTexture.width,CamTexture.height);
         photo.SetPixels(CamTexture.GetPixels());
         photo.Apply();
         photo = rotateTexture(photo, false);
         photo.Apply();
         photo = FlipTexture(photo);
-        photo.Apply();
+        photo.Apply();*/
+        
+        _photoScreenshotTakerCamera.Render();
+        var capture = FindObjectOfType<TransparencyImageCapture>();
+        
+        var imageTuple = capture.captureScreenshot("photo.png", _photoScreenshotTakerCamera);
+        var photo = FlipTexture(imageTuple.Item2,false);
+
         CamTexture.Stop();
         OnPhotoTaken?.Invoke(photo,orient);
     }
@@ -118,20 +134,31 @@ public class DeviceCamera : MonoBehaviour
         return rotatedTexture;
     }
 
-    public static Texture2D FlipTexture(Texture2D original){
-        var flipped = new Texture2D(original.width,original.height);
-         
-        var xN = original.width;
-        var yN = original.height;
-         
-         
-        for(int i=0;i<xN;i++){
-            for(int j=0;j<yN;j++){
-                flipped.SetPixel(xN-i-1, j, original.GetPixel(i,j));
+    Texture2D FlipTexture(Texture2D original, bool upSideDown = true)
+    {
+
+        Texture2D flipped = new Texture2D(original.width, original.height);
+
+        int xN = original.width;
+        int yN = original.height;
+
+
+        for (int i = 0; i < xN; i++)
+        {
+            for (int j = 0; j < yN; j++)
+            {
+                if (upSideDown)
+                {
+                    flipped.SetPixel(j, xN - i - 1, original.GetPixel(j, i));
+                }
+                else
+                {
+                    flipped.SetPixel(xN - i - 1, j, original.GetPixel(i, j));
+                }
             }
         }
         flipped.Apply();
-         
+
         return flipped;
     }
 }
